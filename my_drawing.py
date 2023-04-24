@@ -32,9 +32,21 @@ def cube(t, x, y, w, h, hand):
     t.up()
 
 
-t.setup(900, 600)
-cube(t, 10, 10, 300, 200, 'right')
-cube(t, -300-10, 10, 300, 200, 'right')
-cube(t, 10, -200-10, 300, 200, 'right')
-cube(t, -300-10, -200-10, 300, 200, 'right')
+t.setup(1000, 800)
+#t.done()
+
+def turn_left_line(t,length):
+   if length < 0:
+      return
+
+   t.left(90)
+   t.forward(length)
+
+   turn_left_line(t,length-5)
+
+t.setup(1000,800)
+t.down()
+
+turn_left_line(t,240)
+
 t.done()
